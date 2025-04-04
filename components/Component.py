@@ -23,6 +23,10 @@ class Component:
         elements = self.get_locator(**kwargs)
         return elements.all()
 
+    def get_count(self, **kwargs) -> Locator:
+        elements = self.get_locator(**kwargs)
+        return elements.count()
+
     def click(self, **kwargs) -> None:
         with allure.step(f'Click on {self.type_of} with name "{self.name}"'):
             locator = self.get_locator(**kwargs)

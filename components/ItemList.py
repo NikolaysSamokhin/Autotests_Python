@@ -15,6 +15,3 @@ class ItemList(Component):
            elementsTextList.append(element.inner_html())
 
        return elementsTextList
-
-
-
