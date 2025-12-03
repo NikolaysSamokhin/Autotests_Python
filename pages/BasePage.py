@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import allure
 from playwright.sync_api import Response
 

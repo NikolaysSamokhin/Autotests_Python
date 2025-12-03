@@ -1,7 +1,7 @@
 from abc import abstractmethod
 
 import allure
-from playwright.async_api import Locator, expect
+from playwright.sync_api import Locator, expect
 
 
 class Component:
@@ -34,17 +34,17 @@ class Component:
 
     def should_be_visible(self, timeout=15, **kwargs):
         with allure.step(f'{self.name}  {self.type_of} should be visible'):
-            locator = self.get_locator(self, **kwargs)
+            locator = self.get_locator(**kwargs)
             expect(locator).to_be_visible(timeout=timeout)
 
     def should_be_invisible(self, timeout, **kwargs):
         with allure.step(f'{self.name}  {self.type_of} should be invisible'):
-            locator = self.get_locator(kwargs)
+            locator = self.get_locator(**kwargs)
             expect(locator).not_to_be_visible()
 
     def should_be_clickable(self, timeout=15, **kwargs):
         with allure.step(f'{self.name}  {self.type_of} should be clickable'):
-            locator = self.get_locator(self, kwargs)
+            locator = self.get_locator(**kwargs)
             expect(locator).to_be_enabled()
 
     def get_text(self, timeout = 35, **kwargs) -> str:

@@ -1,6 +1,4 @@
 pytest
-selenium
 playwright
-requests
 allure-pytest
 

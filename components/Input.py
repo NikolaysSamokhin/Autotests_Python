@@ -1,5 +1,5 @@
 import allure
-from playwright.async_api import expect
+from playwright.sync_api import expect
 
 from components.Component import Component
 
@@ -15,9 +15,9 @@ class Input(Component):
             locator = self.get_locator(**kwrgs)
             locator.fill(value)
             if isValidate:
-                self.should_have_value()
+                self.should_have_value(value, **kwrgs)
 
-    def should_have_value(self, value: str, timeout, **kwargs):
-        with allure.step(f'Text shoud equal to {value}'):
+    def should_have_value(self, value: str, timeout=15, **kwargs):
+        with allure.step(f'Text should equal to {value}'):
             locator = self.get_locator(**kwargs)
-            expect(locator).to_have_value()
+            expect(locator).to_have_value(value, timeout=timeout)

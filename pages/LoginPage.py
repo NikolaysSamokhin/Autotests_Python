@@ -1,4 +1,4 @@
-from playwright.async_api import Page
+from playwright.sync_api import Page
 
 from components.Title import Title
 from pages.BasePage import BasePage

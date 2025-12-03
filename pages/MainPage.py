@@ -1,10 +1,10 @@
-from playwright.async_api import Page
+from playwright.sync_api import Page
 
 from components.Title import Title
 from pages.BasePage import BasePage
 
 
-class LoginPage(BasePage):
+class MainPage(BasePage):
 
     def __init__(self, page: Page) -> None:
         super().__init__(page)
